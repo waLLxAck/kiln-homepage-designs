@@ -1,0 +1,1 @@
+export const meta = { name: 'Haute horlogerie', angle: 'Precision, down to the exact revision: every approved skill is a pinned revision with its test, receipt and repository, sold like a fine movement.', focus: 'library' } as const;

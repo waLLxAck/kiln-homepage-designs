@@ -1,0 +1,240 @@
+/* PROTOTYPE variant 08 — Magazine cover. Bottle-green gloss cover with cream Bodoni masthead and coral cover lines; cream interior pages on a linen desk. */
+:root { --v08-desk: #cdc5b8; --v08-paper: #f7f2e8; --v08-ink: #1a1714; --v08-soft: #5d554b; --v08-coral: #e8553a; --v08-coral-deep: #b93a22; --v08-green: #135039; --v08-cream: #f7efdc; --v08-rule: #d9d0c1; }
+body { background: var(--v08-desk); color: var(--v08-ink); font: 400 16px/1.6 'P Schibsted Grotesk', system-ui, sans-serif; }
+.v08 { min-height: 100vh; padding-bottom: 130px; overflow-x: clip; background: radial-gradient(ellipse 80% 50% at 50% 0, #dcd5c9, transparent 70%), var(--v08-desk); }
+.v08 a { color: inherit; }
+.v08 :focus-visible { outline: 2px solid var(--v08-coral); outline-offset: 3px; }
+.v08 code { font-family: 'P DM Mono', monospace; font-size: .85em; }
+.v08 h2 { font-family: 'P Bodoni Moda', serif; font-weight: 800; line-height: .98; letter-spacing: -.015em; }
+
+/* stage: sticky cover turning over the contents */
+.v08-stage { position: relative; }
+.v08-cover-wrap { position: sticky; top: 0; z-index: 3; height: 100vh; min-height: 640px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: clamp(24px, 4vw, 64px); padding: 24px clamp(20px, 4vw, 56px); pointer-events: none; perspective: 2400px; }
+.v08-cover-wrap > * { pointer-events: auto; }
+.v08-cover-wrap.is-turned { visibility: hidden; }
+.v08-cover-wrap.is-static { position: relative; }
+.v08-side { opacity: calc(1 - var(--turn, 0) * 3); transform: translateY(calc(var(--turn, 0) * -40px)); }
+.v08-side-l { justify-self: end; max-width: 300px; display: grid; gap: 16px; justify-items: start; }
+.v08-side-brand { font: 800 40px/1 'P Bodoni Moda', serif; letter-spacing: -.02em; }
+.v08-side p { font-size: 15px; color: #3d372f; }
+.v08-side .v08-side-fine { font-size: 13px; color: var(--v08-soft); }
+.v08-buy { display: inline-flex; align-items: center; gap: 10px; padding: 13px 18px; background: var(--v08-ink); color: var(--v08-cream) !important; text-decoration: none; font: 600 15px/1 'P Schibsted Grotesk', sans-serif; border-radius: 999px; }
+.v08-buy:hover { background: var(--v08-coral); }
+.v08-side-r { justify-self: start; display: grid; gap: 10px; }
+.v08-open { display: inline-flex; align-items: center; gap: 12px; font: italic 500 24px/1 'P Bodoni Moda', serif; text-decoration: none; }
+.v08-open svg { width: 26px; height: 26px; animation: v08-bob 1.8s ease-in-out infinite; }
+.v08-side-r p { font-size: 14px; color: var(--v08-soft); }
+@keyframes v08-bob { 50% { transform: translateY(5px); } }
+
+.v08-cover {
+  --u: 1cqw;
+  position: relative; container-type: inline-size; width: min(calc((100vh - 64px) * .75), 660px, 92vw); aspect-ratio: 3 / 4; overflow: hidden; color: var(--v08-cream);
+  background: radial-gradient(ellipse 60% 45% at 62% 66%, #3c8f6e 0, transparent 70%), radial-gradient(ellipse 90% 80% at 50% 40%, #1d6448 0, #10432f 60%, #0a2c20 100%);
+  box-shadow: 0 1px 0 #fff3 inset, -1px 0 0 #0003, 0 40px 70px -30px #1c140a90, 0 10px 20px -10px #1c140a60;
+  transform-origin: left center; transform: rotateY(calc(var(--turn, 0) * -118deg)); backface-visibility: hidden; will-change: transform;
+}
+.v08-cover::before { content: ''; position: absolute; inset: 0; z-index: 5; pointer-events: none; background: linear-gradient(100deg, #ffffff26 0, transparent 22%, transparent 70%, #ffffff12 86%, transparent 100%), linear-gradient(90deg, #0004 0, transparent 2.4%); }
+.v08-cover::after { content: ''; position: absolute; inset: 0; z-index: 6; pointer-events: none; background: #000; opacity: calc(var(--turn, 0) * .7); }
+.v08-in { opacity: 0; }
+.v08-cover.is-in .v08-in { animation: v08-in .9s calc(var(--d) * .14s + .1s) cubic-bezier(.2, .7, .2, 1) both; }
+.v08-cover.is-in .v08-mast { animation-name: v08-mast; animation-duration: 1.1s; }
+@keyframes v08-in { from { opacity: 0; transform: translateY(3cqw); } to { opacity: 1; transform: none; } }
+@keyframes v08-mast { from { opacity: 0; clip-path: inset(100% 0 0 0); transform: translateY(4cqw); } to { opacity: 1; clip-path: inset(0 0 -10% 0); transform: none; } }
+
+.v08-issue { position: absolute; top: 3.4cqw; left: 5cqw; right: 5cqw; display: flex; justify-content: space-between; font: 700 calc(var(--u) * 1.75)/1 'P Schibsted Grotesk', sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+.v08-issue span { font-weight: 500; }
+.v08-mast { position: absolute; top: 6cqw; left: 0; right: 0; text-align: center; font: 900 36cqw/.8 'P Bodoni Moda', serif; letter-spacing: -.01em; color: var(--v08-cream); text-shadow: 0 .6cqw 2cqw #0003; z-index: 1; }
+.v08-cover-art { position: absolute; right: 1cqw; bottom: 37cqw; width: 54cqw; height: 44cqw; z-index: 2; }
+.v08-keys { transform-origin: 100% 100%; }
+.v08-cover-art::before { content: ''; position: absolute; left: 6cqw; right: 2cqw; bottom: 0; height: 12cqw; border-radius: 50%; background: radial-gradient(closest-side, #000a, transparent); filter: blur(1.6cqw); }
+.v08-keys { position: absolute; inset: 0; }
+.v08-key { position: absolute; border-radius: 2.6cqw; background: linear-gradient(160deg, #fffaf0, #e2d5bd); box-shadow: inset 0 -1.8cqw 0 #bfae8d, inset 0 .35cqw .2cqw #fff, 0 2.6cqw 3cqw -1cqw #0009, 1.5cqw 5cqw 6cqw -2cqw #0007; }
+.v08-key::before { content: ''; position: absolute; inset: 1cqw 1.4cqw 2.8cqw; border-radius: 1.8cqw; background: linear-gradient(170deg, #fffdf8, #ede2cd); box-shadow: 0 .3cqw .6cqw #0002; }
+.v08-key::after { content: ''; position: absolute; left: 12%; right: 30%; top: 1.4cqw; height: .7cqw; border-radius: 1cqw; background: #fff; opacity: .7; filter: blur(.25cqw); }
+.v08-key i { position: absolute; left: 3.2cqw; top: 2.6cqw; z-index: 1; font: 600 calc(var(--u) * 2.3)/1 'P Schibsted Grotesk', sans-serif; font-style: normal; color: #5d503a; }
+.v08-key.is-space { left: 2cqw; bottom: 3cqw; width: 50cqw; height: 11.5cqw; transform: rotate(-9deg); background: linear-gradient(160deg, #ff9a7c, #df4428); box-shadow: inset 0 -1.8cqw 0 #a92e18, inset 0 .35cqw .2cqw #ffd3c4, 0 2.6cqw 3cqw -1cqw #0009, 1.5cqw 5cqw 6cqw -2cqw #0007; }
+.v08-key.is-space::before { background: linear-gradient(170deg, #ffae94, #f15b3e); }
+.v08-key.is-space i { color: #5b1a0c; left: auto; right: 4cqw; top: 3cqw; }
+.v08-key.is-shift { left: 5cqw; bottom: 14cqw; width: 22cqw; height: 16cqw; transform: rotate(7deg); }
+.v08-key.is-ctrl { left: 29cqw; bottom: 18cqw; width: 17cqw; height: 16cqw; transform: rotate(-15deg); }
+
+.v08-lines { position: absolute; left: 5cqw; top: 39cqw; width: 40cqw; list-style: none; margin: 0; padding: 0; display: grid; gap: 3.4cqw; z-index: 3; }
+.v08-lines li { font: italic 400 calc(var(--u) * 3.3)/1.08 'P Bodoni Moda', serif; }
+.v08-lines strong { display: block; font: 800 calc(var(--u) * 2.3)/1.1 'P Schibsted Grotesk', sans-serif; font-style: normal; letter-spacing: .06em; text-transform: uppercase; color: #ff8a6c; margin-bottom: .5cqw; }
+.v08-badge { position: absolute; right: 4cqw; top: 29cqw; z-index: 3; width: 19cqw; height: 19cqw; border-radius: 50%; background: var(--v08-cream); color: var(--v08-green); display: grid; place-content: center; text-align: center; padding: 2cqw; font: 600 calc(var(--u) * 1.6)/1.15 'P Schibsted Grotesk', sans-serif; transform: rotate(10deg); box-shadow: 0 1cqw 2cqw #0004; }
+.v08-cover.is-in .v08-badge { animation-name: v08-badge; }
+@keyframes v08-badge { from { opacity: 0; transform: rotate(-30deg) scale(.4); } to { opacity: 1; transform: rotate(10deg); } }
+.v08-badge span { display: block; font: italic 800 calc(var(--u) * 3)/1 'P Bodoni Moda', serif; color: var(--v08-coral-deep); margin-bottom: .6cqw; }
+.v08-main { position: absolute; left: 5cqw; bottom: 6cqw; width: 64cqw; z-index: 4; font: 700 calc(var(--u) * 6.9)/.95 'P Bodoni Moda', serif; letter-spacing: -.02em; text-shadow: 0 .4cqw 2cqw #0006; }
+.v08-main em { display: block; font: italic 900 calc(var(--u) * 17)/.8 'P Bodoni Moda', serif; color: #ff8a6c; margin-bottom: -.4cqw; }
+.v08-barcode { position: absolute; right: 4cqw; bottom: 4cqw; z-index: 4; background: #fff; color: #000; padding: 1cqw 1.4cqw .6cqw; display: grid; justify-items: center; font: 500 calc(var(--u) * 1.2)/1.2 'P Schibsted Grotesk', sans-serif; }
+.v08-bars { font: 400 calc(var(--u) * 6.4)/1 'P Libre Barcode 128 Text', monospace; }
+.v08-cover-credit { position: absolute; right: 1.4cqw; top: 58cqw; writing-mode: vertical-rl; font: 500 calc(var(--u) * 1.15)/1 'P Schibsted Grotesk', sans-serif; letter-spacing: .08em; opacity: .7; z-index: 4; }
+
+/* shared page look */
+.v08-page { background: var(--v08-paper); position: relative; box-shadow: 0 1px 2px #0002, 0 30px 60px -34px #2a1e0e80; }
+.v08-folio { position: absolute; bottom: 18px; font: 600 12px/1 'P Schibsted Grotesk', sans-serif; letter-spacing: .08em; color: var(--v08-soft); }
+.v08-left .v08-folio { left: 28px; } .v08-right .v08-folio, .v08-edit .v08-folio { right: 28px; }
+.v08-kicker { font: 700 12.5px/1 'P Schibsted Grotesk', sans-serif; letter-spacing: .18em; text-transform: uppercase; color: var(--v08-coral-deep); margin-bottom: 16px; }
+.v08-dek { font: italic 400 21px/1.35 'P Bodoni Moda', serif; margin: 16px 0 26px; max-width: 34ch; color: #3a332b; }
+.v08-cols { columns: 2; column-gap: 30px; font-size: 15px; line-height: 1.62; }
+.v08-cols p { margin-bottom: 12px; }
+.v08-drop::first-letter { float: left; font: 900 4.9em/.78 'P Bodoni Moda', serif; margin: .08em .08em 0 0; color: var(--v08-coral); }
+.v08-pull { column-span: all; margin: 14px 0 18px; padding: 16px 0; border-block: 2px solid var(--v08-ink); font: italic 500 clamp(22px, 2.2vw, 30px)/1.2 'P Bodoni Moda', serif; }
+.v08-caption { margin-top: 18px; font-size: 12.5px; color: var(--v08-soft); font-style: italic; }
+
+/* contents */
+.v08-contents { max-width: 1180px; margin: -6vh auto 0; padding: clamp(36px, 5vw, 64px) clamp(22px, 5vw, 72px) clamp(40px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 28px 56px; }
+.v08-contents-head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 12px 24px; flex-wrap: wrap; border-bottom: 2px solid var(--v08-ink); padding-bottom: 14px; }
+.v08-contents-head h2 { font-size: clamp(64px, 10vw, 150px); font-weight: 900; line-height: .85; }
+.v08-contents-head p { font: italic 400 20px/1.2 'P Bodoni Moda', serif; }
+.v08-toc { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
+.v08-toc a { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 2px 16px; padding: 18px 0; border-bottom: 1px solid var(--v08-rule); text-decoration: none; }
+.v08-toc a:hover .v08-toc-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.v08-toc-page { grid-row: span 3; font: 900 58px/.9 'P Bodoni Moda', serif; color: var(--v08-coral); }
+.v08-toc-kicker { font: 700 11.5px/1.4 'P Schibsted Grotesk', sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--v08-soft); }
+.v08-toc-title { font: 700 22px/1.12 'P Bodoni Moda', serif; }
+.v08-toc-dek { font-size: 14.5px; color: #4a4239; }
+.v08-oncover { align-self: start; background: var(--v08-green); color: var(--v08-cream); padding: 22px; display: grid; gap: 16px; }
+.v08-oncover p { font-size: 14.5px; }
+.v08-mini { position: relative; height: 110px; }
+.v08-mini span { position: absolute; border-radius: 10px; background: linear-gradient(160deg, #fffaf0, #e2d5bd); box-shadow: inset 0 -7px 0 #bfae8d, 0 10px 14px -6px #0009; }
+.v08-mini span:nth-child(1) { left: 8px; bottom: 6px; width: 200px; height: 42px; transform: rotate(-9deg); background: linear-gradient(160deg, #ff9a7c, #df4428); box-shadow: inset 0 -7px 0 #a92e18, 0 10px 14px -6px #0009; }
+.v08-mini span:nth-child(2) { left: 26px; bottom: 44px; width: 80px; height: 56px; transform: rotate(7deg); }
+.v08-mini span:nth-child(3) { left: 118px; bottom: 54px; width: 62px; height: 56px; transform: rotate(-15deg); }
+
+/* spreads */
+.v08-spread { display: grid; grid-template-columns: 1fr 1fr; max-width: 1240px; margin: clamp(60px, 8vw, 110px) auto 0; padding-inline: clamp(0px, 2vw, 24px); }
+.v08-spread .v08-page { padding: clamp(36px, 4.4vw, 64px) clamp(26px, 4vw, 56px) 64px; }
+.v08-left { background: linear-gradient(to left, #0000001c 0, transparent 7%), var(--v08-paper); }
+.v08-right { background: linear-gradient(to right, #00000024 0, #0000000a 3%, transparent 9%), var(--v08-paper); }
+.v08-spread h2 { font-size: clamp(38px, 4.4vw, 66px); }
+.v08-fifty-art { display: grid; align-content: start; }
+.v08-fifty-num { font: italic 900 clamp(180px, 24vw, 360px)/.78 'P Bodoni Moda', serif; color: var(--v08-coral); letter-spacing: -.04em; margin: 0 0 10px -.04em; }
+.v08-saved { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 24px; font-size: 14px; }
+.v08-saved li { padding: 7px 0; border-bottom: 1px solid var(--v08-rule); break-inside: avoid; text-decoration: line-through; text-decoration-color: #e8553a70; }
+.v08-saved li:nth-child(1) { text-decoration: none; font-weight: 700; }
+.v08-saved li:nth-child(1)::after { content: ' (tested)'; color: var(--v08-coral-deep); font-weight: 500; }
+.v08-saved .is-more { text-decoration: none; font-style: italic; color: var(--v08-soft); }
+
+.v08-spotted h3 { font: italic 800 clamp(48px, 5.4vw, 84px)/1 'P Bodoni Moda', serif; margin-bottom: 26px; }
+.v08-guests { list-style: none; padding: 0; margin: 0 0 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 26px 22px; }
+.v08-guests li { display: grid; gap: 12px; }
+.v08-portrait { display: grid; place-items: center; width: 100%; height: clamp(120px, 13vw, 170px); border-radius: 50% 50% 4px 4px; font: italic 700 clamp(40px, 4vw, 60px)/1 'P Bodoni Moda', serif; }
+.v08-portrait.is-coral { background: radial-gradient(circle at 50% 35%, #ff9e82, #d9442a); color: #fff3ec; }
+.v08-portrait.is-green { background: radial-gradient(circle at 50% 35%, #3d9372, #0f4430); color: var(--v08-cream); }
+.v08-portrait.is-ink { background: radial-gradient(circle at 50% 35%, #4a4540, #121110); color: #efe7d8; }
+.v08-portrait.is-sand { background: radial-gradient(circle at 50% 35%, #efe0bf, #c9ae7a); color: #4a3a1c; }
+.v08-guests p { font-size: 14px; line-height: 1.45; }
+.v08-guests strong { display: block; font: 700 17px/1.2 'P DM Mono', monospace; margin-bottom: 2px; }
+.v08-guestlist { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.v08-guestlist caption { text-align: left; font: 700 12px/1.3 'P Schibsted Grotesk', sans-serif; letter-spacing: .14em; text-transform: uppercase; padding-bottom: 8px; border-bottom: 2px solid var(--v08-ink); }
+.v08-guestlist th, .v08-guestlist td { text-align: left; padding: 9px 8px 9px 0; border-bottom: 1px solid var(--v08-rule); vertical-align: top; }
+.v08-guestlist code { overflow-wrap: anywhere; }
+.v08-guestlist .is-drift { color: var(--v08-coral-deep); font-weight: 700; }
+
+.v08-spread.is-dark .v08-page { color: #efe7d8; }
+.v08-spread.is-dark .v08-left { background: linear-gradient(to left, #0000006a 0, transparent 7%), #171513; }
+.v08-spread.is-dark .v08-right { background: linear-gradient(to right, #00000080 0, transparent 9%), #1d1a17; }
+.v08-spread.is-dark .v08-dek { color: #d8cfbf; }
+.v08-spread.is-dark .v08-kicker { color: #ff8a6c; }
+.v08-spread.is-dark .v08-caption, .v08-spread.is-dark .v08-folio { color: #a79d8e; }
+.v08-prompt { margin-top: 12px; padding: 26px 0 0; border-top: 2px solid #ff8a6c; font: italic 400 clamp(22px, 2.3vw, 30px)/1.3 'P Bodoni Moda', serif; }
+.v08-prompt span { display: block; font: 700 13px/1.3 'P Schibsted Grotesk', sans-serif; font-style: normal; letter-spacing: .14em; text-transform: uppercase; color: #ff8a6c; margin-bottom: 12px; }
+.v08-timeline { list-style: none; padding: 0; margin: 0; }
+.v08-timeline li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid #3a342e; }
+.v08-timeline li > span { font: italic 700 22px/1.1 'P Bodoni Moda', serif; color: #ff8a6c; }
+.v08-timeline h3 { font: 700 18px/1.25 'P Schibsted Grotesk', sans-serif; margin-bottom: 4px; }
+.v08-timeline p { font-size: 14.5px; color: #cfc6b6; }
+.v08-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin: 22px 0 0; }
+.v08-stats div { border-left: 1px solid #3a342e; padding: 4px 12px; }
+.v08-stats div:first-child { border-left: 0; padding-left: 0; }
+.v08-stats dt { font-size: 12px; color: #a79d8e; }
+.v08-stats dd { margin: 0; font: 700 24px/1.2 'P Bodoni Moda', serif; }
+
+.v08-approval-art { display: grid; align-content: center; }
+.v08-revs { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.v08-revs li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 2px 16px; padding: 16px 18px; background: #fff; box-shadow: 0 1px 2px #0001, 0 10px 20px -16px #0006; transform: rotate(-.6deg); }
+.v08-revs li:nth-child(even) { transform: rotate(.7deg) translateX(10px); }
+.v08-revs .v08-rev-state { grid-row: span 2; font: italic 700 17px/1.2 'P Bodoni Moda', serif; color: var(--v08-soft); }
+.v08-revs strong { font-size: 16px; }
+.v08-revs li > span:last-child { font-size: 14px; color: #4a4239; }
+.v08-revs .is-approved { background: var(--v08-green); color: var(--v08-cream); transform: rotate(-1.4deg) scale(1.04); position: relative; }
+.v08-revs .is-approved .v08-rev-state { color: #ff9d82; }
+.v08-revs .is-approved > span:last-child { color: #d8e6dc; }
+.v08-revs .is-approved::after { content: 'Pinned'; position: absolute; right: -10px; top: -14px; background: var(--v08-coral); color: #fff; font: 700 12px/1 'P Schibsted Grotesk', sans-serif; letter-spacing: .12em; text-transform: uppercase; padding: 7px 10px; transform: rotate(6deg); }
+
+.v08-edit { max-width: 1240px; margin: clamp(60px, 8vw, 110px) auto 0; padding-inline: clamp(0px, 2vw, 24px); }
+.v08-edit .v08-page { padding: clamp(36px, 4.4vw, 64px) clamp(26px, 4vw, 56px) 64px; }
+.v08-edit header { display: flex; align-items: baseline; gap: 12px 28px; flex-wrap: wrap; border-bottom: 2px solid var(--v08-ink); padding-bottom: 16px; margin-bottom: 30px; }
+.v08-edit header .v08-kicker { margin: 0; }
+.v08-edit h2 { font-size: clamp(38px, 4.4vw, 66px); }
+.v08-edit-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.v08-edit-grid li { display: grid; align-content: start; gap: 10px; }
+.v08-tag { justify-self: start; position: relative; background: var(--v08-ink); color: var(--v08-cream); font: 600 13px/1 'P DM Mono', monospace; padding: 8px 12px 8px 22px; border-radius: 3px 14px 14px 3px; transform: rotate(-3deg); margin-bottom: 8px; }
+.v08-tag::before { content: ''; position: absolute; left: 8px; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: var(--v08-paper); }
+.v08-edit-grid li:nth-child(2) .v08-tag { background: var(--v08-coral); transform: rotate(2deg); }
+.v08-edit-grid li:nth-child(3) .v08-tag { background: var(--v08-green); transform: rotate(-1deg); }
+.v08-edit-grid h3 { font: 700 26px/1.1 'P Bodoni Moda', serif; }
+.v08-edit-grid p { font-size: 15px; color: #3d372f; }
+.v08-edit-foot { margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--v08-rule); font: italic 400 18px/1.4 'P Bodoni Moda', serif; }
+
+.v08-back { position: relative; max-width: 1192px; margin: clamp(60px, 8vw, 110px) auto 0; padding: clamp(48px, 7vw, 100px) clamp(26px, 5vw, 72px); background: radial-gradient(ellipse 70% 60% at 70% 30%, #f37a5d, transparent 70%), var(--v08-coral); color: #fff6ee; box-shadow: 0 30px 60px -34px #2a1e0e80; }
+.v08-back .v08-folio { right: 28px; color: #ffe3d8; }
+.v08-back-kicker { font: 600 12px/1 'P Schibsted Grotesk', sans-serif; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 20px; }
+.v08-back h2 { font-size: clamp(64px, 11vw, 170px); font-weight: 900; line-height: .86; }
+.v08-back h2 em { display: block; font-weight: 400; font-size: .42em; line-height: 1.1; }
+.v08-back-line { font: italic 400 clamp(22px, 2.4vw, 32px)/1.2 'P Bodoni Moda', serif; margin: 22px 0 30px; }
+.v08-buy.is-big { font-size: 18px; padding: 17px 24px; }
+.v08-back .v08-buy:hover { background: var(--v08-green); }
+.v08-thumb { position: absolute; right: clamp(40px, 7vw, 110px); top: 50%; width: clamp(220px, 24vw, 330px); aspect-ratio: 3 / 4; transform: translateY(-50%) rotate(7deg); background: radial-gradient(ellipse 90% 80% at 50% 40%, #1d6448 0, #10432f 60%, #0a2c20 100%); box-shadow: 0 30px 50px -20px #5a1a0c90; padding: 18px; color: var(--v08-cream); display: grid; align-content: space-between; overflow: hidden; }
+.v08-thumb-mast { font: 900 clamp(64px, 7.4vw, 104px)/.8 'P Bodoni Moda', serif; text-align: center; }
+.v08-thumb-line { font: 700 clamp(17px, 1.7vw, 24px)/1 'P Bodoni Moda', serif; max-width: 70%; }
+.v08-thumb-line b { display: block; font: italic 900 2.2em/.8 'P Bodoni Moda', serif; color: #ff8a6c; }
+.v08-thumb .v08-mini { position: absolute; left: 30%; top: 40%; width: 210px; transform: scale(.72); transform-origin: 0 0; }
+.v08-back-fine { margin-top: 22px; max-width: 64ch; font-size: 14px; color: #ffe6dc; }
+
+@media (max-width: 1100px) {
+  .v08-cover-wrap { grid-template-columns: minmax(0, 1fr) auto; }
+  .v08-side-r { display: none; }
+  .v08-contents { grid-template-columns: minmax(0, 1fr); }
+  .v08-oncover { grid-template-columns: 220px minmax(0, 1fr); align-items: center; }
+  .v08-edit-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .v08-cover-wrap { display: flex; flex-direction: column-reverse; justify-content: center; gap: 18px; padding: 16px 16px 20px; height: auto; min-height: 100vh; }
+  .v08-cover { --u: 1.24cqw; width: calc(100vw - 32px); aspect-ratio: 3 / 4.5; }
+  .v08-mast { font-size: 38cqw; top: 8cqw; }
+  .v08-issue span:last-child { display: none; }
+  .v08-lines { top: 44cqw; width: 52cqw; gap: 3.6cqw; }
+  .v08-badge { top: 31cqw; width: 25cqw; height: 25cqw; }
+  .v08-cover-art { bottom: 62cqw; width: 54cqw; height: 44cqw; right: -1cqw; }
+  .v08-keys { transform: scale(.78); }
+  .v08-main { width: 80cqw; bottom: 16cqw; }
+  .v08-barcode { bottom: 3cqw; right: 4cqw; }
+  .v08-cover-credit { display: none; }
+  .v08-side-l { justify-self: stretch; max-width: none; }
+  .v08-side-brand { display: none; }
+  .v08-toc { grid-template-columns: minmax(0, 1fr); }
+  .v08-toc a { grid-template-columns: 56px minmax(0, 1fr); }
+  .v08-toc-page { font-size: 44px; }
+  .v08-oncover { grid-template-columns: minmax(0, 1fr); }
+  .v08-spread { grid-template-columns: minmax(0, 1fr); padding-inline: 10px; }
+  .v08-edit, .v08-back { margin-inline: 10px; }
+  .v08-thumb { display: none; }
+  .v08-left, .v08-right, .v08-spread.is-dark .v08-left, .v08-spread.is-dark .v08-right { background-image: none; }
+  .v08-spread .v08-page + .v08-page { border-top: 1px dashed #0002; }
+  .v08-cols { columns: 1; }
+  .v08-guests { grid-template-columns: 1fr 1fr; gap: 18px 14px; }
+  .v08-revs li { grid-template-columns: minmax(0, 1fr); }
+  .v08-revs .v08-rev-state { grid-row: auto; }
+  .v08-revs li:nth-child(even) { transform: rotate(.7deg); }
+  .v08-stats { grid-template-columns: 1fr 1fr; gap: 10px 0; }
+  .v08-stats div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .v08-edit-grid { grid-template-columns: minmax(0, 1fr); }
+  .v08-guestlist tr { display: grid; grid-template-columns: 1fr auto; }
+  .v08-guestlist td:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+  .v08-guestlist th, .v08-guestlist td { border: 0; padding: 4px 0; }
+  .v08-guestlist tr { border-bottom: 1px solid var(--v08-rule); padding: 6px 0; }
+}
+@media (prefers-reduced-motion: reduce) { .v08-open svg { animation: none; } }

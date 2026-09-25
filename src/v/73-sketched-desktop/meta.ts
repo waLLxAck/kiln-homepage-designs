@@ -1,0 +1,1 @@
+export const meta = { name: 'Sketched desktop', angle: 'Confessional. Your own computer drawn as a pencil wireframe: five sketchy Explorer windows on skills folders empty into the one crisp, dark Windows 11 window, Kiln. Then a sketchy browser: drag a video, post or repo tab into Kiln, test the prompt, approve it onto the same panel.', focus: 'both' } as const;

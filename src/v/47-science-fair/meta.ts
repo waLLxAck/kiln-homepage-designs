@@ -1,0 +1,1 @@
+export const meta = { name: 'Science fair', angle: 'Prompt or flop? A school tri-fold poster that runs the scientific method on a saved prompt: question, hypothesis, a read-only test on your repo, results, and what it taught you about prompting.', focus: 'testing' } as const;

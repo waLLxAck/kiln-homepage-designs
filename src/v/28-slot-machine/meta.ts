@@ -1,0 +1,1 @@
+export const meta = { name: 'Slot machine', angle: 'Quit gambling on bookmarks: pull the lever for a saved prompt, then watch Kiln replace luck with evidence on your repo.', focus: 'testing' } as const;

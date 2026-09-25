@@ -1,0 +1,1 @@
+export const meta = { name: 'The Prompt v. Your Repository', angle: 'Put a saved prompt on trial: exhibit, testimony on your repo, the agent’s assessment, and your verdict.', focus: 'testing' } as const;

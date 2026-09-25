@@ -1,0 +1,1 @@
+export const meta = { name: 'One sentence', angle: 'Thirteen screens, one sentence each. Testing comes first because the unrun prompt is the hook; the skills it produces create the library problem, so organisation follows, then the download.', focus: 'both' } as const;

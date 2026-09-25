@@ -1,0 +1,1 @@
+export const meta = { name: 'Panel', angle: 'Every copy of every skill, on one panel: install locations as hardware switches with lamps for installed and edited outside Kiln.', focus: 'library' } as const;

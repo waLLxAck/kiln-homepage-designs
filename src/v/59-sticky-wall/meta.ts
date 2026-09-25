@@ -1,0 +1,1 @@
+export const meta = { name: 'Sticky wall', angle: 'Library first, plain and friendly: your skills are a wall of sticky notes, and one button flies them into a Windows 11 panel; saved ideas are notes you drag into Test.', focus: 'library' } as const;

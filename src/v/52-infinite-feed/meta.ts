@@ -1,0 +1,1 @@
+export const meta = { name: 'Infinite feed', angle: 'You’ll never reach the bottom. Freeze the doomscroll, pick one saved item and test it on your repo; then the calm library.', focus: 'testing' } as const;

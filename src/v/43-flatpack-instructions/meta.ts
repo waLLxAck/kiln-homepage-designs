@@ -1,0 +1,1 @@
+export const meta = { name: 'Flat-pack instructions', angle: 'Assembly takes minutes. No extra API bill. Wordless steps from a bookmark to an installed skill, then a tidy library.', focus: 'both' } as const;

@@ -1,0 +1,1 @@
+export const meta = { name: 'Seventies cookbook', angle: 'Prompts are recipes: stop clipping them, cook one tonight in your own kitchen, and keep the tested one as a house special.', focus: 'testing' } as const;

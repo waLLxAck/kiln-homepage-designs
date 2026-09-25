@@ -1,0 +1,1 @@
+export const meta = { name: 'Sketchnote', angle: 'A whiteboard explainer that draws itself: the “I’ll try it later” loop, cut by a quick read-only test on your repo, then prompting learned by iterating, then a skill.', focus: 'testing' } as const;

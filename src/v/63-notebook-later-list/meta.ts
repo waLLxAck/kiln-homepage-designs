@@ -1,0 +1,1 @@
+export const meta = { name: 'Try-later list', angle: 'Testing first, confessional: a ballpoint bullet-journal list of saved prompts that keep moving to next week; tick one and a crisp Kiln sticker tests it on your repo, then the index page shows the skills panel where passes land.', focus: 'testing' } as const;

@@ -1,0 +1,1 @@
+export const meta = { name: 'Napkin sketch, two acts', angle: 'A confession over coffee in two acts: the skills folders doodled on a napkin pop into one taped-on Kiln panel, then "how do I add new skills?" is answered by dragging a video, a post or a repo into Kiln, testing the prompt it finds and landing it as a new row on that panel.', focus: 'both' } as const;

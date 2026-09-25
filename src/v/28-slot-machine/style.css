@@ -1,0 +1,167 @@
+/* PROTOTYPE variant 25 — Slot machine. Red velvet, chrome, brass and bulbs. */
+:root { --v25-velvet: #5c0c18; --v25-velvet-2: #7d1424; --v25-gold: #f2c14e; --v25-brass: #b8862b; --v25-cream: #fff4d6; --v25-ink: #1b0a0d; --v25-red: #e0262f; --v25-mint: #7fe3b0; }
+body { background-color: var(--v25-velvet); color: var(--v25-cream); font-family: 'P Rubik', system-ui, sans-serif; }
+body::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; background:
+  radial-gradient(ellipse 60% 40% at 50% 0%, #a3263a 0, transparent 70%),
+  repeating-linear-gradient(90deg, #0000 0 38px, #00000026 38px 44px, #0000 44px 82px),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 0 0 0 0 0 .02 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.v25 { max-width: 1240px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 44px) 120px; overflow-x: clip; }
+.v25 :focus-visible { outline: 3px solid var(--v25-gold); outline-offset: 3px; }
+.v25 code { font-family: 'P Courier Prime', monospace; font-size: .92em; }
+
+.v25-top { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+.v25-brand { font-family: 'P Bungee', sans-serif; font-size: 24px; color: var(--v25-gold); text-decoration: none; }
+.v25-top-link { color: var(--v25-cream); font-weight: 600; }
+
+/* Marquee with two phases of chasing bulbs. */
+.v25-marquee { position: relative; padding: 26px; border-radius: 24px; background: linear-gradient(#2a0a10, #170508); box-shadow: 0 0 0 4px var(--v25-brass), 0 0 0 7px #3b1a08, 0 20px 50px #0009; }
+.v25-marquee::before, .v25-marquee::after { content: ''; position: absolute; inset: 0; border-radius: 24px; padding: 13px; -webkit-mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); background: radial-gradient(circle, #fffbe6 0 3.2px, #ffd66b 4.2px, #ffb70055 6px, transparent 7.5px) 0 0 / 26px 26px; animation: v25-chase .9s steps(1) infinite; }
+.v25-marquee::after { background-position: 13px 13px; animation-delay: -.45s; }
+@keyframes v25-chase { 0% { opacity: 1; } 50% { opacity: .18; } }
+.v25-marquee-in { position: relative; z-index: 1; text-align: center; padding: 26px 20px 22px; border-radius: 10px; background: radial-gradient(ellipse at 50% 30%, #3d0d16, #1b0609 75%); }
+.v25-marquee h1 { font-family: 'P Bungee Shade', sans-serif; font-weight: 400; font-size: clamp(38px, 6.6vw, 94px); line-height: 1; color: var(--v25-gold); text-shadow: 0 0 22px #f2c14e66; }
+.v25-marquee p { font-family: 'P Bungee', sans-serif; font-size: clamp(15px, 1.8vw, 22px); margin-top: 14px; color: var(--v25-cream); }
+
+/* Cabinet */
+.v25-hero { padding-bottom: 90px; }
+.v25-hero > .v25-cabinet, .v25-hero > .v25-payout { margin-top: 42px; }
+.v25-hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 56px); align-items: start; }
+.v25-marquee { grid-column: 1 / -1; }
+.v25-cabinet { position: relative; padding-right: 52px; }
+.v25-cab-face { position: relative; border-radius: 28px; padding: 26px 24px 20px; background: linear-gradient(160deg, #c1242f, #7c0f19 70%); box-shadow: inset 0 2px 0 #ff7a7f, inset 0 -6px 0 #4a060d, 0 0 0 6px transparent, 0 26px 50px #000a; border: 6px solid; border-image: linear-gradient(90deg, #868a91, #f5f7f9 22%, #9fa3aa 45%, #ffffff 62%, #767a82) 1; border-radius: 0; }
+.v25-reels { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 12px; background: #1b0a0d; border-radius: 12px; box-shadow: inset 0 0 0 3px var(--v25-brass); }
+.v25-reel { --h: 92px; height: calc(var(--h) * 2.6); overflow: hidden; border-radius: 8px; background: var(--v25-cream); position: relative; }
+.v25-reel::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(#1b0a0dcc, #1b0a0d00 30%, #1b0a0d00 70%, #1b0a0dcc); }
+.v25-reel ul { list-style: none; padding: 0; margin: 0; padding-top: calc(var(--h) * .8); will-change: transform; }
+.v25-reel ul.is-blur { filter: blur(1.6px); }
+.v25-reel li { height: var(--h); display: grid; place-items: center; text-align: center; padding: 0 10px; color: var(--v25-ink); font-family: 'P Bungee', sans-serif; font-size: 17px; line-height: 1.15; }
+.v25-src { color: #8a1420 !important; }
+.v25-ttl { font-size: 16px !important; }
+.v25-repo { font-family: 'P Courier Prime', monospace !important; font-weight: 700; font-size: 17px !important; }
+.v25-payline { position: absolute; inset: 0; pointer-events: none; }
+.v25-payline::before, .v25-payline::after { content: ''; position: absolute; top: 50%; margin-top: -10px; border: 10px solid transparent; }
+.v25-payline::before { left: -3px; border-left: 14px solid var(--v25-gold); }
+.v25-payline::after { right: -3px; border-right: 14px solid var(--v25-gold); }
+.v25-cab-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 18px; }
+.v25-cab-label { font-family: 'P Bungee', sans-serif; font-size: 13px; color: #ffd9a8; }
+.v25-pull { font-family: 'P Bungee', sans-serif; font-size: 18px; color: #fff; background: radial-gradient(circle at 50% 35%, #ff5b5b, #c3121b 70%); border: 4px solid #3b0508; border-radius: 99px; padding: 12px 24px; box-shadow: 0 6px 0 #3b0508, 0 0 24px #ff3b3b66; transition: transform .08s, box-shadow .08s; }
+.v25-pull:active, .v25-pull:disabled { transform: translateY(5px); box-shadow: 0 1px 0 #3b0508; }
+.v25-pull:disabled { opacity: .85; cursor: default; }
+.v25-lever { all: unset; cursor: pointer; position: absolute; right: 0; top: 40px; width: 58px; height: 250px; }
+.v25-lever:focus-visible { outline: 3px solid var(--v25-gold); outline-offset: 2px; border-radius: 12px; }
+.v25-lever-base { position: absolute; left: -2px; top: 118px; width: 30px; height: 64px; border-radius: 0 12px 12px 0; background: linear-gradient(90deg, #767a82, #f5f7f9 40%, #9fa3aa); box-shadow: 0 6px 12px #0008; }
+.v25-lever-rod { position: absolute; left: 30px; top: 18px; width: 12px; height: 132px; transform-origin: 50% 132px; border-radius: 6px; background: linear-gradient(90deg, #8e9299, #ffffff 45%, #8e9299); }
+.v25-lever-rod i { position: absolute; left: 50%; top: -18px; width: 38px; height: 38px; margin-left: -19px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ff9a9a, #e0262f 45%, #7a0a12); box-shadow: 0 6px 10px #0008; }
+.v25-lever.is-pulled .v25-lever-rod { animation: v25-pull 1s cubic-bezier(.3, .8, .3, 1); }
+@keyframes v25-pull { 0% { transform: scaleY(1); } 28% { transform: scaleY(-.95); } 40% { transform: scaleY(-.88); } 100% { transform: scaleY(1); } }
+.v25-cabinet.is-spinning .v25-payline { animation: v25-chase .3s steps(1) infinite; }
+
+.v25-intro { margin-top: 34px; max-width: 34em; grid-column: 1; grid-row: 3; }
+.v25-payout { grid-column: 2; grid-row: 2 / span 2; }
+.v25-cabinet { grid-column: 1; grid-row: 2; }
+.v25-intro p { font-size: 18px; line-height: 1.55; color: #f7dcd3; }
+.v25-intro a { display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; font-family: 'P Bungee', sans-serif; font-size: 16px; color: var(--v25-ink); background: var(--v25-gold); padding: 11px 18px; border-radius: 99px; text-decoration: none; box-shadow: 0 4px 0 var(--v25-brass); }
+.v25-intro small { display: block; margin-top: 10px; font-size: 13px; color: #e9b9b0; }
+
+/* Payout ticket */
+.v25-payout { position: relative; }
+.v25-slot { height: 18px; border-radius: 9px; background: #140407; box-shadow: inset 0 3px 6px #000, 0 0 0 4px var(--v25-brass); margin: 0 -8px; position: relative; z-index: 2; }
+.v25-ticket { position: relative; margin: -9px 14px 0; padding: 26px 22px 22px; background: var(--v25-cream); color: var(--v25-ink); font-family: 'P Courier Prime', monospace; font-size: 14.5px; line-height: 1.45; min-height: 200px;
+  -webkit-mask: radial-gradient(circle 6px at 50% 100%, #0000 98%, #000) 50% 100% / 18px 100% repeat-x; mask: radial-gradient(circle 6px at 50% 100%, #0000 98%, #000) 0 100% / 18px 100% repeat-x; padding-bottom: 30px; box-shadow: 0 16px 30px #0007; }
+.v25-ticket > p { animation: v25-print .25s ease-out both; }
+@keyframes v25-print { from { opacity: 0; transform: translateY(-6px); } }
+.v25-ticket-wait { font-family: 'P Bungee', sans-serif; font-size: 20px; line-height: 1.3; color: #8a1420; padding-top: 10px; }
+.v25-t-head { font-family: 'P Bungee', sans-serif; font-size: 16px; color: #8a1420; border-bottom: 2px dashed #1b0a0d55; padding-bottom: 8px; margin-bottom: 10px; }
+.v25-t-prompt { font-size: 13.5px; margin-bottom: 10px; padding-left: 10px; border-left: 3px solid #8a1420; }
+.v25-t-kv { display: flex; justify-content: space-between; gap: 12px; border-top: 1px dotted #1b0a0d66; padding: 5px 0; }
+.v25-t-kv span:first-child { font-weight: 700; }
+.v25-t-kv span:last-child { text-align: right; }
+.v25-t-line { font-size: 13.5px; color: #4a2a2f; }
+.v25-t-verdict { display: flex; justify-content: space-between; align-items: center; margin: 10px 0 6px; padding: 8px 12px; background: var(--v25-ink); color: var(--v25-cream); }
+.v25-t-verdict strong { font-family: 'P Bungee', sans-serif; font-weight: 400; font-size: 24px; }
+.v25-pass strong { color: var(--v25-mint); }
+.v25-uncertain strong { color: var(--v25-gold); }
+.v25-t-note { font-size: 13.5px; margin-bottom: 8px; }
+.v25-t-you span:last-child { font-weight: 700; }
+.v25-t-sample { font-size: 12px; color: #6b4a4f; margin-top: 6px; }
+
+/* Odds */
+.v25 h2 { font-family: 'P Bungee', sans-serif; font-weight: 400; font-size: clamp(32px, 4.4vw, 58px); line-height: 1.02; color: var(--v25-gold); }
+.v25-odds { padding: 30px 0 90px; }
+.v25-odds-grid { display: grid; grid-template-columns: minmax(0, .85fr) auto minmax(0, 1.4fr); gap: 22px; align-items: stretch; margin-top: 30px; }
+.v25-bet, .v25-proof { border-radius: 18px; padding: 24px 26px; }
+.v25-bet { background: #3a0710; box-shadow: inset 0 0 0 2px #8a2a36; }
+.v25-proof { background: var(--v25-cream); color: var(--v25-ink); box-shadow: 0 0 0 4px var(--v25-brass), 0 20px 40px #0008; }
+.v25-bet h3, .v25-proof h3 { font-family: 'P Bungee', sans-serif; font-weight: 400; font-size: 22px; margin-bottom: 14px; }
+.v25-bet ul { list-style: none; padding: 0; margin: 0; }
+.v25-bet li { font-size: 18px; line-height: 1.4; padding: 8px 0; border-top: 1px solid #ffffff1f; color: #f2cfc9; }
+.v25-bet li::before { content: '? '; font-family: 'P Bungee', sans-serif; color: var(--v25-gold); }
+.v25-vs { align-self: center; font-family: 'P Bungee Shade', sans-serif; font-size: 40px; color: var(--v25-gold); }
+.v25-proof dl { margin: 0; }
+.v25-proof dl div { display: grid; grid-template-columns: 9em 1fr; gap: 14px; padding: 9px 0; border-top: 1px dashed #1b0a0d44; font-size: 15.5px; line-height: 1.45; }
+.v25-proof dt { font-weight: 700; }
+.v25-proof dd { margin: 0; }
+.v25-odds-foot { font-size: 18px; line-height: 1.55; max-width: 44em; margin-top: 28px; color: #f7dcd3; }
+
+/* Cash in */
+.v25-cashout { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 44px; align-items: center; padding: 60px 0 90px; border-top: 2px dashed #f2c14e44; }
+.v25-cashout p { font-size: 18px; line-height: 1.6; max-width: 40em; margin-top: 16px; color: #f7dcd3; }
+.v25-chip { width: 190px; height: 190px; border-radius: 50%; display: grid; place-items: center; background: repeating-conic-gradient(var(--v25-red) 0 15deg, var(--v25-cream) 15deg 30deg); box-shadow: 0 16px 30px #0009; animation: v25-roll 14s linear infinite; }
+.v25-chip span { width: 128px; height: 128px; border-radius: 50%; display: grid; place-items: center; background: #b01820; border: 4px dashed var(--v25-cream); font-family: 'P Bungee', sans-serif; font-size: 24px; color: var(--v25-cream); }
+@keyframes v25-roll { to { transform: rotate(360deg); } }
+
+/* Vault */
+.v25-vault { padding: 60px 0 90px; border-top: 2px dashed #f2c14e44; }
+.v25-vault-lede { font-size: 18px; line-height: 1.6; max-width: 44em; margin: 16px 0 28px; color: #f7dcd3; }
+.v25-vault-lede code { color: var(--v25-cream); }
+.v25-vault-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.v25-drawer { border-radius: 14px; padding: 18px 18px 12px; background: linear-gradient(#2d0a10, #1e0609); box-shadow: inset 0 0 0 2px var(--v25-brass); }
+.v25-drawer h3 { font-family: 'P Bungee', sans-serif; font-weight: 400; font-size: 17px; color: var(--v25-gold); margin-bottom: 10px; }
+.v25-drawer ul { list-style: none; padding: 0; margin: 0; }
+.v25-drawer li { font-size: 15px; line-height: 1.35; padding: 8px 0; border-top: 1px solid #ffffff17; }
+.v25-drawer li span { display: inline-block; min-width: 5.6em; font-size: 12px; font-weight: 700; color: var(--v25-mint); }
+.v25-vault-facts { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.v25-vault-facts li { font-size: 16px; line-height: 1.55; color: #f7dcd3; }
+.v25-vault-facts strong { display: block; color: var(--v25-cream); font-size: 18px; margin-bottom: 6px; }
+
+/* Cash out */
+.v25-cash { text-align: center; padding: 60px 26px 50px; border-radius: 28px; background: radial-gradient(ellipse at 50% 0, #3d0d16, #1b0609 80%); box-shadow: 0 0 0 4px var(--v25-brass), 0 30px 60px #000a; }
+.v25-cash > p:not(.v25-fine) { font-size: 18px; line-height: 1.6; max-width: 36em; margin: 18px auto 32px; color: #f7dcd3; }
+.v25-bigbtn { display: inline-flex; align-items: center; gap: 12px; font-family: 'P Bungee', sans-serif; font-size: 20px; color: #fff; text-decoration: none; background: radial-gradient(circle at 50% 30%, #ff5b5b, #c3121b 70%); border: 4px solid #3b0508; border-radius: 99px; padding: 18px 32px; box-shadow: 0 8px 0 #3b0508, 0 0 40px #ff3b3b66; transition: transform .08s, box-shadow .08s; }
+.v25-bigbtn:active { transform: translateY(6px); box-shadow: 0 2px 0 #3b0508; }
+.v25-fine { font-size: 13.5px; line-height: 1.5; color: #e9b9b0; margin: 22px auto 0; max-width: 34em; }
+
+@media (max-width: 1000px) {
+  .v25-hero { grid-template-columns: 1fr; }
+  .v25-intro, .v25-payout, .v25-cabinet { grid-column: 1; grid-row: auto; }
+  .v25-odds-grid { grid-template-columns: 1fr; }
+  .v25-vs { justify-self: center; }
+}
+@media (max-width: 760px) {
+  .v25 { padding: 0 12px 110px; }
+  .v25-marquee { padding: 18px; border-radius: 18px; }
+  .v25-marquee::before, .v25-marquee::after { border-radius: 18px; padding: 9px; background-size: 18px 18px; }
+  .v25-marquee::after { background-position: 9px 9px; }
+  .v25-marquee-in { padding: 18px 8px 16px; }
+  .v25-marquee h1 { font-size: 34px; }
+  .v25-marquee p { font-size: 13px; }
+  .v25-cabinet { padding-right: 46px; }
+  .v25-cab-face { padding: 14px 10px 14px; }
+  .v25-reels { gap: 5px; padding: 6px; }
+  .v25-reel { --h: 76px; }
+  .v25-reel li { font-size: 11.5px; padding: 0 5px; }
+  .v25-ttl { font-size: 11px !important; }
+  .v25-repo { font-size: 10.5px !important; padding: 0 8px !important; }
+  .v25-cab-row { flex-direction: column; align-items: stretch; gap: 10px; }
+  .v25-cab-label { font-size: 11px; text-align: center; }
+  .v25-lever { width: 58px; top: 20px; transform: scale(.75); transform-origin: top right; right: 0; }
+  .v25-ticket { margin: -9px 8px 0; padding: 22px 16px 28px; font-size: 13.5px; }
+  .v25-bet, .v25-proof { padding: 20px 18px; }
+  .v25-proof dl div { grid-template-columns: 1fr; gap: 2px; }
+  .v25-cashout { grid-template-columns: 1fr; gap: 24px; justify-items: start; }
+  .v25-chip { width: 130px; height: 130px; }
+  .v25-chip span { width: 88px; height: 88px; font-size: 17px; }
+  .v25-vault-grid, .v25-vault-facts { grid-template-columns: 1fr; }
+  .v25-bigbtn { font-size: 16px; padding: 15px 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .v25-marquee::before, .v25-marquee::after, .v25-chip { animation: none; } }

@@ -1,0 +1,159 @@
+/* PROTOTYPE variant 05 — Research paper. A preprint server page, then a LaTeX-looking two-column paper on a viewer backdrop. */
+:root { --v05-maroon: #8a1c14; --v05-ink: #151515; --v05-grey: #5b5b5b; --v05-rule: #1a1a1a; --v05-link: #1d4fa0; --v05-cite: #1b6e2e; --v05-back: #e4e2dd; color-scheme: light; }
+body { background: var(--v05-back); color: var(--v05-ink); font: 400 16px/1.5 'P IBM Plex Sans', system-ui, sans-serif; }
+.v05 { padding-bottom: 120px; }
+.v05 a { color: var(--v05-link); }
+.v05 :focus-visible { outline: 2px solid var(--v05-link); outline-offset: 2px; }
+
+/* Preprint server chrome. */
+.v05-server { background: var(--v05-maroon); color: #fff; }
+.v05-server-in { max-width: 1180px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.v05-logo { color: #fff !important; text-decoration: none; font: 400 30px/1 'P EB Garamond', serif; letter-spacing: -.01em; }
+.v05-logo span { font-style: italic; font-weight: 600; }
+.v05-crumbs { font-size: 13.5px; opacity: .9; }
+.v05-server nav { margin-left: auto; display: flex; gap: 20px; font-size: 14px; }
+.v05-server nav a { color: #fff; text-decoration: none; }
+.v05-server nav a:hover { text-decoration: underline; }
+.v05-server :focus-visible { outline-color: #fff; }
+
+.v05-abs-page { max-width: 1180px; margin: 0 auto; padding: 30px 24px 54px; display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 40px; background: #fff; border-bottom: 1px solid #cfccc5; box-shadow: 0 0 0 100vmax #fff; clip-path: inset(0 -100vmax); }
+.v05-subj { font-size: 13px; color: var(--v05-grey); }
+.v05-sub { margin-top: 10px; font-size: 13px; font-style: italic; color: var(--v05-grey); }
+.v05-title { margin-top: 8px; font: 600 clamp(30px, 3.4vw, 44px)/1.1 'P EB Garamond', serif; letter-spacing: -.01em; }
+.v05-authors { margin-top: 14px; font-size: 17px; color: var(--v05-link); }
+.v05-affil { margin-top: 4px; font-size: 13px; color: var(--v05-grey); }
+.v05-abstract { margin-top: 22px; max-width: 78ch; }
+.v05-abstract h2 { display: inline; font-size: 15px; font-weight: 700; }
+.v05-abstract h2::after { content: ': '; }
+.v05-abstract p { display: inline; font-size: 16px; line-height: 1.6; }
+.v05-kw { margin-top: 14px; font-size: 14px; color: var(--v05-grey); }
+.v05-access { border-left: 1px solid #ddd; padding-left: 22px; font-size: 14px; }
+.v05-access h2 { font-size: 15px; font-weight: 700; }
+.v05-access ul { margin: 8px 0 18px; padding-left: 18px; }
+.v05-access li + li { margin-top: 4px; }
+.v05-access li:last-child a { font-weight: 700; }
+.v05-access small { color: var(--v05-grey); }
+.v05-access h3 { margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--v05-grey); }
+.v05-access p { margin-top: 2px; }
+.v05-hist { font-size: 13px; line-height: 1.6; }
+
+/* The paper. */
+.v05-sheet { max-width: 920px; margin: 48px auto 0; padding: 72px 76px 80px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .18), 0 18px 40px -20px rgba(0, 0, 0, .35); font: 400 17px/1.42 'P EB Garamond', 'Garamond', serif; color: #111; font-variant-numeric: oldstyle-nums; }
+.v05-sheet-head { text-align: center; margin-bottom: 40px; }
+.v05-paper-title { font-weight: 500; font-size: 30px; line-height: 1.15; }
+.v05-paper-authors { margin-top: 12px; font-variant: small-caps; letter-spacing: .04em; font-size: 18px; }
+.v05-sec { margin-top: 34px; }
+.v05-sec > h3 { font-weight: 700; font-size: 20px; margin-bottom: 12px; }
+.v05-sec > h3 span, .v05-cols h4 span { display: inline-block; min-width: 1.9em; }
+.v05-cols { columns: 2; column-gap: 34px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+.v05-cols > * { break-inside: avoid-column; }
+.v05-cols p { orphans: 3; widows: 3; }
+.v05-cols p + p, .v05-cols .v05-eq + p { text-indent: 1.4em; }
+.v05-cols h4 { font-weight: 700; font-size: 17px; margin: 14px 0 4px; break-after: avoid; }
+.v05-cols h4:first-child { margin-top: 0; }
+.v05-cols h4 + p { text-indent: 0; }
+.v05-list { margin: 6px 0 0; padding-left: 1.6em; text-align: left; }
+.v05-list li { padding-left: .2em; }
+.v05-list { list-style: lower-roman; }
+.v05-eq { position: relative; display: flex; justify-content: center; margin: 12px 0; padding: 0 2.6em; font-size: 18px; text-align: center; text-indent: 0; }
+.v05-eq-body { font-variant-numeric: lining-nums; }
+.v05-eq-n { position: absolute; right: 0; top: 0; }
+.v05-kbd { font: 400 .84em/1 'P IBM Plex Mono', monospace; white-space: nowrap; }
+.v05-cite { color: var(--v05-cite); text-decoration: none; }
+.v05-cite:hover { text-decoration: underline; }
+.v05-fn { position: relative; top: -.5em; margin-left: 1px; padding: 0 1px; font-size: .68em; line-height: 0; color: var(--v05-link); text-decoration: none; font-variant-numeric: lining-nums; }
+.v05-fn:hover, .v05-fn[aria-expanded="true"] { background: #e7eefb; border-radius: 2px; }
+.v05-fn:focus-visible { outline: 2px solid var(--v05-link); outline-offset: 1px; border-radius: 2px; }
+.v05-quote { margin: 10px 0; padding: 0 1.2em; font-style: italic; text-align: left; }
+
+.v05-algo { margin: 22px 0 0; border-top: 1.5px solid var(--v05-rule); border-bottom: 1.5px solid var(--v05-rule); font-size: 16px; }
+.v05-algo figcaption { padding: 4px 0; border-bottom: 1px solid var(--v05-rule); }
+.v05-algo ol { margin: 0; padding: 6px 0 8px 2.4em; }
+.v05-algo li { padding-left: .4em; }
+.v05-algo li::marker { font-size: 13px; color: #444; }
+.v05-algo li.i1 { padding-left: 1.8em; }
+.v05-cmt { color: #444; font-size: 15px; margin-left: .6em; }
+
+.v05-fig { margin: 26px 0 0; }
+.v05-fig-plot { position: relative; max-width: 620px; margin: 0 auto; }
+.v05-plot { display: block; width: 100%; height: auto; overflow: visible; font-family: 'P EB Garamond', serif; }
+.v05-grid { stroke: #cfcfcf; stroke-width: 1; stroke-dasharray: 2 3; }
+.v05-axis { stroke: #111; stroke-width: 1.1; }
+.v05-ylab, .v05-xlab { font-size: 15px; fill: #111; font-style: italic; }
+.v05-axlab { font-size: 14px; fill: #333; }
+.v05-trace { fill: none; stroke: #777; stroke-width: 1.4; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.v05-m-pass { fill: #111; }
+.v05-m-fail { stroke: #111; stroke-width: 2.2; stroke-linecap: round; fill: none; }
+.v05-m-unc { fill: #fff; stroke: #111; stroke-width: 1.6; }
+.v05-mark { cursor: pointer; outline: none; }
+.v05-mark > :last-child { transform-box: fill-box; transform-origin: center; }
+.v05-mark:hover > :last-child, .v05-mark:focus-visible > :last-child { stroke: var(--v05-link); stroke-width: 2.4; }
+.v05-mark:focus-visible rect { stroke: var(--v05-link); stroke-width: 1; }
+.v05-fig.is-waiting .v05-trace { stroke-dashoffset: 1; }
+.v05-fig.is-waiting .v05-mark { opacity: 0; }
+.v05-fig.is-drawn .v05-trace { stroke-dashoffset: 0; transition: stroke-dashoffset 2.2s cubic-bezier(.45, 0, .3, 1); }
+.v05-fig.is-drawn .v05-mark { opacity: 1; transition: opacity .3s calc(var(--d) * .22s + .1s); }
+.v05-tip { min-height: 1.5em; margin-top: 4px; text-align: center; font-size: 14.5px; color: var(--v05-link); opacity: 0; transition: opacity .15s; }
+.v05-tip.is-on { opacity: 1; }
+.v05-fig figcaption, .v05-table figcaption { max-width: 620px; margin: 6px auto 0; font-size: 15px; line-height: 1.4; text-align: justify; hyphens: auto; }
+
+.v05-table { margin: 30px 0 0; }
+.v05-table figcaption { margin: 0 auto 8px; }
+.v05-table-scroll { overflow-x: auto; }
+.v05-table table { margin: 0 auto; border-collapse: collapse; font-size: 15px; font-variant-numeric: lining-nums tabular-nums; border-top: 1.5px solid var(--v05-rule); border-bottom: 1.5px solid var(--v05-rule); }
+.v05-table th { font-weight: 600; text-align: left; padding: 5px 10px; border-bottom: 1px solid var(--v05-rule); white-space: nowrap; }
+.v05-table td { padding: 3px 10px; }
+.v05-table tbody tr:first-child td { padding-top: 7px; }
+.v05-table tbody tr:last-child td { padding-bottom: 7px; }
+.v05-table .num { text-align: right; }
+
+.v05-listing { margin: 10px 0; padding: 8px 10px; background: #f6f6f3; border-left: 2px solid #999; font: 400 13px/1.5 'P IBM Plex Mono', monospace; white-space: pre-wrap; text-align: left; overflow-wrap: anywhere; }
+.v05-listing .ln { color: #999; user-select: none; }
+.v05-listing del { text-decoration: none; color: #8f2a1f; }
+.v05-listing ins { text-decoration: none; color: #1b5e2b; }
+.v05-cols > .v05-lim { break-inside: auto; }
+.v05-lim { margin: 8px 0 0; padding-left: 1.1em; text-align: justify; }
+.v05-lim li { margin-top: 6px; break-inside: avoid; }
+
+.v05-refs ol { margin: 0; padding-left: 2.2em; font-size: 15.5px; columns: 2; column-gap: 34px; }
+.v05-refs li { break-inside: avoid; margin-bottom: 6px; }
+.v05-refs li::marker { content: '[' counter(list-item) ']  '; }
+.v05-refs li:target { background: #fff6c2; }
+
+.v05-notes ol { margin: 0; padding-left: 1.6em; font-size: 14.5px; columns: 2; column-gap: 34px; }
+.v05-notes li { break-inside: avoid; margin-bottom: 4px; }
+.v05-notes li:target { background: #fff6c2; }
+.v05-side-dl { display: flex; gap: 10px; align-items: center; margin-top: 4px; padding: 10px 14px; background: var(--v05-maroon); color: #fff !important; text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.v05-access .v05-side-dl small { display: block; font-weight: 400; font-size: 12px; color: #f6dcd8; }
+.v05-side-dl:hover { background: #6d140e; }
+.v05-side-note { margin: 8px 0 4px !important; font-size: 12.5px; color: var(--v05-grey); }
+.v05-supp { margin-top: 40px; padding-top: 18px; border-top: 1.5px solid var(--v05-rule); }
+.v05-supp h3 { font-weight: 700; font-size: 20px; }
+.v05-supp > p { margin-top: 6px; }
+.v05-download { display: inline-grid; grid-template-columns: auto auto; align-items: center; column-gap: 14px; margin: 16px 0 10px; padding: 14px 22px; border: 1.5px solid var(--v05-rule); color: #fff !important; text-decoration: none; font: 500 16px/1.3 'P IBM Plex Mono', monospace; background: var(--v05-ink); }
+.v05-download svg { grid-row: span 2; }
+.v05-download small { font: 400 13px 'P IBM Plex Sans', sans-serif; color: #cfcfcf; }
+.v05-download:hover { background: var(--v05-maroon); }
+.v05-supp-note { font-size: 15px; color: #333; max-width: 70ch; }
+
+.v05-pop { position: absolute; z-index: 20; padding: 10px 14px; background: #fff; border: 1px solid #888; box-shadow: 0 8px 24px rgba(0, 0, 0, .18); font: 400 15.5px/1.4 'P EB Garamond', serif; color: #111; }
+.v05-pop sup { color: var(--v05-link); }
+.v05-pop::before { content: ''; position: absolute; top: -6px; left: 50%; width: 10px; height: 10px; margin-left: -5px; background: #fff; border-left: 1px solid #888; border-top: 1px solid #888; transform: rotate(45deg); }
+
+@media (max-width: 900px) {
+  .v05-server-in { gap: 8px 16px; padding: 10px 16px; }
+  .v05-crumbs { display: none; }
+  .v05-server nav { margin-left: 0; gap: 14px; font-size: 13px; width: 100%; }
+  .v05-abs-page { grid-template-columns: 1fr; gap: 24px; padding: 22px 16px 36px; }
+  .v05-access { border-left: 0; border-top: 1px solid #ddd; padding: 16px 0 0; }
+  .v05-sheet { margin: 24px 8px 0; padding: 30px 18px 40px; font-size: 16.5px; }
+  .v05-paper-title { font-size: 24px; }
+  .v05-cols, .v05-refs ol, .v05-notes ol { columns: 1; }
+  .v05-eq { font-size: 16.5px; padding: 0 2.2em; }
+  .v05-table table { font-size: 13.5px; min-width: 540px; }
+  .v05-ylab, .v05-xlab { font-size: 25px; }
+  .v05-axlab { font-size: 20px; }
+  .v05-mark > :last-child { transform: scale(1.5); }
+  .v05-table th, .v05-table td { padding-inline: 6px; }
+  .v05-download { font-size: 13.5px; }
+}

@@ -1,0 +1,1 @@
+export const meta = { name: 'Sideways board', angle: 'Library first, bold and terse: one long whiteboard you travel left to right, from the folder mess to a monochrome Kiln panel, a pinned idea tested on your repo, and a loop line that carries the approved skill back to the panel.', focus: 'library' } as const;

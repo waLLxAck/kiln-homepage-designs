@@ -1,0 +1,1 @@
+export const meta = { name: 'Toy factory', angle: 'Show the whole product as one tiny factory line: bookmarks go in, tested skills come out, and the library is the warehouse.', focus: 'both' } as const;

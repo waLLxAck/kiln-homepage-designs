@@ -1,0 +1,1 @@
+export const meta = { name: 'Field guide', angle: 'A naturalist’s guide to the creatures living in your skills folder: duplicates, drifted copies, stale drafts, and how Kiln deals with each.', focus: 'library' } as const;

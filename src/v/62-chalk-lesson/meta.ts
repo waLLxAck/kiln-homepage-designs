@@ -1,0 +1,1 @@
+export const meta = { name: 'Chalk lesson', angle: 'Deliberately testing-first and framed as learning to prompt: a chalkboard lesson where you run a sample test, fix one vague line on the board and re-run to a pass; lesson 2 is the skills panel, where that skill lands.', focus: 'testing' } as const;

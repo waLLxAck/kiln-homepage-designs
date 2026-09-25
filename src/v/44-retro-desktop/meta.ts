@@ -1,0 +1,1 @@
+export const meta = { name: 'Retro desktop', angle: 'A late-90s desktop where the bookmark pile, the skills folder and Kiln sit side by side; drag a bookmark onto Kiln and it gets tested.', focus: 'both' } as const;

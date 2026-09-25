@@ -1,0 +1,1 @@
+export const meta = { name: 'Ticker tape', angle: 'Stop holding ideas you never trade: a saved prompt’s revision history charted like a stock, each point a real test verdict.', focus: 'testing' } as const;

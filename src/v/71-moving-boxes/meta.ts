@@ -1,0 +1,1 @@
+export const meta = { name: 'Moving boxes', angle: 'Confessional: your skill folders are marker-scrawled moving boxes that flap open and unpack into one crisp Kiln panel; then new ideas arrive as parcels you drag in, test and move in as skills on that same panel.', focus: 'both' } as const;

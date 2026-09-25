@@ -1,0 +1,1 @@
+export const meta = { name: 'Crayon toy box', angle: 'So simple a seven-year-old could draw it: colour in a crayon folder to light up its crisp panel row; then run the seven-year-old prompt itself. Library first.', focus: 'library' } as const;

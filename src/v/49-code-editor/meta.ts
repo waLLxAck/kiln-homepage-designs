@@ -1,0 +1,1 @@
+export const meta = { name: 'Code editor', angle: 'Edit freely; your agents keep the revision you approved. The library as a warm light IDE with blame, diffs and a status bar that tells the truth about every copy.', focus: 'library' } as const;

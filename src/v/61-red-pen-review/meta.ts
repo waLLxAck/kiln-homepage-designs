@@ -1,0 +1,1 @@
+export const meta = { name: 'Red-pen review', angle: 'The inverse of 54: one big crisp Kiln screen is the page, and a developer\'s red-pen markup explains it as you scroll. Library first, then the panel, then a test that lands on the panel; the old folders appear last, as a margin scribble.', focus: 'library' } as const;

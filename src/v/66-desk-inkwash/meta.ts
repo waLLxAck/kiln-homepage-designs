@@ -1,0 +1,1 @@
+export const meta = { name: 'Desk, ink and wash', angle: 'A calm scroll camera: the messy desk of skill folders is swept into the laptop until the crisp panel fills the page; then one saved note gets tested. Library first.', focus: 'library' } as const;

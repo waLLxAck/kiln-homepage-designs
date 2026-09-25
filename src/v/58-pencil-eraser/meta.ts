@@ -1,0 +1,1 @@
+export const meta = { name: 'Pencil and eraser', angle: 'One sticky stage: scrolling rubs out a pencil mess of duplicated skill folders to reveal the dark Kiln panel; then drag a sketched idea onto Test and it lands on that panel. Terse, library first.', focus: 'library' } as const;

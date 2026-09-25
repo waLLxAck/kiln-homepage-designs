@@ -1,0 +1,81 @@
+/* PROTOTYPE variant 34 — The long read. Newsreader with optical sizes; ink, one warm grey and a single ember accent. */
+:root { --v34-paper: #efedea; --v34-ink: #1d1b19; --v34-grey: #6f6962; --v34-rule: #cfcac3; --v34-ember: #c7400e; --v34-heat: 0; --v34-serif: 'P Newsreader', 'Iowan Old Style', Georgia, serif; }
+body { background: var(--v34-paper); color: var(--v34-ink); font: 400 21px/1.62 var(--v34-serif); font-optical-sizing: auto; font-kerning: normal; font-variant-ligatures: common-ligatures; }
+.v34 { min-height: 100vh; padding: 0 24px; }
+.v34 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+.v34 :focus-visible { outline: 2px solid var(--v34-ember); outline-offset: 3px; }
+.v34 ::selection { background: #c7400e33; }
+
+.v34-progress { position: fixed; inset: 0 0 auto; z-index: 20; height: 4px; background: #1d1b190d; }
+.v34-progress span { display: block; width: 0; height: 100%; background: rgb(150 143 134); transition: background-color .2s; }
+
+.v34-mast { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; padding: 28px 0 18px; border-bottom: 1px solid var(--v34-rule); font-size: 15px; color: var(--v34-grey); letter-spacing: .01em; }
+.v34-series { font-style: italic; }
+
+.v34-essay { max-width: 1100px; margin: 0 auto; }
+.v34-head { max-width: 900px; margin: 0 auto; padding: clamp(56px, 10vw, 128px) 0 clamp(40px, 6vw, 72px); text-align: center; }
+.v34-head h1 { font-size: clamp(46px, 7.2vw, 100px); font-weight: 350; line-height: 1.02; letter-spacing: -.022em; text-wrap: balance; }
+.v34-deck { max-width: 36em; margin: 30px auto 0; font-size: clamp(20px, 2vw, 25px); line-height: 1.45; font-style: italic; font-weight: 300; color: #3f3a35; text-wrap: pretty; }
+
+.v34-body { position: relative; max-width: 34em; margin: 0 auto; hanging-punctuation: first; }
+.v34-body > p { margin-bottom: 1.05em; text-wrap: pretty; }
+.v34-body > p + p { text-indent: 1.4em; margin-top: -1.05em; }
+.v34-first::first-letter { float: left; margin: .04em .08em -.2em -.04em; font-size: 5.9em; line-height: .8; font-weight: 400; color: var(--v34-ember); }
+.v34-first::first-line { font-variant-caps: all-small-caps; letter-spacing: .04em; font-size: 1.04em; }
+.v34-body h2 { margin: 2.6em 0 .9em; font-size: 30px; line-height: 1.15; font-weight: 500; letter-spacing: -.01em; }
+.v34-num { display: block; margin-bottom: .35em; font-size: 16px; font-weight: 500; letter-spacing: .12em; color: color-mix(in oklab, var(--v34-grey), var(--v34-ember) calc(var(--v34-heat) * 100%)); }
+.v34-pull { margin: 1.6em 0 1.8em -3.2em; padding: .1em 0 .1em 1.1em; border-left: 3px solid var(--v34-ember); }
+.v34-pull p { font-size: clamp(30px, 3.4vw, 40px); line-height: 1.16; font-style: italic; font-weight: 300; letter-spacing: -.012em; text-wrap: balance; }
+.v34-example { margin: 1.2em 0 1.4em; padding: 1em 1.2em; background: #e5e2dd; font-size: 18.5px; line-height: 1.55; }
+.v34-example p::before { content: '“'; margin-left: -.42em; color: var(--v34-ember); }
+.v34-example p::after { content: '”'; color: var(--v34-ember); }
+.v34-turn { color: var(--v34-ink); }
+
+.v34-ref { font-size: .62em; line-height: 0; vertical-align: .55em; font-weight: 600; margin-left: .06em; }
+.v34-ref a { text-decoration: none; color: var(--v34-ember); padding: 0 .12em; }
+.v34-sn { display: none; }
+.v34-sn-no { font-weight: 600; color: var(--v34-ember); margin-right: .2em; }
+
+.v34-footnotes { max-width: 34em; margin: 64px auto 0; padding-top: 18px; border-top: 1px solid var(--v34-rule); font-size: 16px; line-height: 1.55; color: #3f3a35; }
+.v34-footnotes h2 { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+.v34-footnotes ol { padding-left: 1.3em; display: grid; gap: 10px; }
+.v34-footnotes li::marker { color: var(--v34-ember); font-weight: 600; }
+.v34-footnotes a { color: var(--v34-ember); }
+
+@media (min-width: 1100px) {
+  .v34-body { margin-left: max(0px, calc(50% - 26em)); }
+  .v34-sn { display: block; float: right; clear: right; width: 15em; margin: .3em -19em 1em 0; font-size: 15px; line-height: 1.5; text-indent: 0; color: var(--v34-grey); transition: color .3s; }
+  .v34-sn.is-lit { color: var(--v34-ink); animation: v34-glow 1.2s ease-out; }
+  @keyframes v34-glow { from { background: #c7400e1f; } }
+  .v34-footnotes { display: none; }
+}
+
+/* Resolution */
+.v34-resolution { margin: clamp(56px, 8vw, 96px) -24px 0; padding: clamp(64px, 9vw, 120px) 24px clamp(140px, 12vw, 180px); background: var(--v34-ink); color: #ebe7e1; }
+.v34-res-inner { max-width: 34em; margin: 0 auto; }
+.v34-resolution h2 { font-size: clamp(64px, 9vw, 120px); font-weight: 300; line-height: .9; letter-spacing: -.03em; color: var(--v34-ember); }
+.v34-res-lede { margin: 20px 0 36px; font-size: 25px; line-height: 1.4; font-weight: 300; font-style: italic; text-wrap: pretty; }
+.v34-facts { margin: 0 0 40px; }
+.v34-facts div { display: grid; grid-template-columns: 9em minmax(0, 1fr); gap: 20px; padding: 16px 0; border-top: 1px solid #ffffff1f; }
+.v34-facts dt { font-style: italic; color: #b3aca3; font-size: 18px; }
+.v34-facts dd { margin: 0; font-size: 18px; line-height: 1.55; }
+.v34-download { display: grid; gap: 14px; justify-items: start; }
+.v34-button { display: inline-flex; align-items: center; gap: 12px; padding: 16px 26px; background: var(--v34-ember); color: #fff !important; text-decoration: none; font: 500 19px var(--v34-serif); letter-spacing: .01em; transition: background .2s; }
+.v34-button:hover { background: #a93509; }
+.v34-download p { max-width: 40em; font-size: 15.5px; line-height: 1.5; color: #b3aca3; }
+.v34-coda { margin-top: 48px; font-size: 22px; font-style: italic; text-align: center; color: #ebe7e1; }
+
+@media (max-width: 700px) {
+  body { font-size: 19px; }
+  .v34 { padding-inline: 20px; }
+  .v34-mast { font-size: 13.5px; }
+  .v34-head { text-align: left; }
+  .v34-deck { margin-left: 0; }
+  .v34-pull { margin-left: 0; }
+  .v34-pull p { font-size: 28px; }
+  .v34-body h2 { font-size: 26px; }
+  .v34-resolution { margin-inline: -20px; padding-inline: 20px; }
+  .v34-facts div { grid-template-columns: 1fr; gap: 4px; }
+  .v34-res-lede { font-size: 21px; }
+  .v34-button { font-size: 17px; padding: 15px 20px; }
+}

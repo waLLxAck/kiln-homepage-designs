@@ -1,0 +1,1 @@
+export const meta = { name: 'Napkin sketch', angle: 'An engineer sketches the problem on a café napkin and tapes the fix beside it: skills panel first, then one saved idea tested and approved onto that panel.', focus: 'library' } as const;

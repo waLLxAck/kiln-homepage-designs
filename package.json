@@ -1,0 +1,21 @@
+{
+  "name": "kiln-homepage-designs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "74 working homepage designs for Kiln, written by Claude Opus 5.5 in Claude Code.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && node scripts/pages.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "thumbs": "node scripts/thumbs.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.58.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.3.0"
+  }
+}

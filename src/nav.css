@@ -1,0 +1,31 @@
+/* Every property the bar relies on is set here, so a design's global element styles can't restyle it. */
+.kd-nav, .kd-nav * { box-sizing: border-box; margin: 0; letter-spacing: normal; text-transform: none; text-shadow: none; }
+.kd-nav svg { display: block; fill: currentColor; }
+.kd-nav {
+  position: fixed; z-index: 2147483647; left: 50%; bottom: 16px; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 4px; padding: 5px; max-width: calc(100vw - 16px);
+  border-radius: 999px; background: #151412; color: #f3efe6;
+  font: 500 13px/1.2 'P Instrument Sans', system-ui, sans-serif;
+  box-shadow: 0 0 0 1px #fff3, 0 12px 32px #0006;
+  animation: kd-nav-in .5s cubic-bezier(.2, .8, .2, 1) both .3s;
+}
+.kd-nav[hidden] { display: none; }
+.kd-nav a { color: inherit; text-decoration: none; }
+.kd-nav-home, .kd-nav-step {
+  flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+  background: #ffffff14; font-size: 20px; line-height: 1; transition: background .15s;
+}
+.kd-nav-home:hover, .kd-nav-step:hover { background: #ffffff2e; }
+.kd-nav-home { background: #c4331f; }
+.kd-nav-home:hover { background: #d9442f; }
+.kd-nav-label { position: relative; display: flex; align-items: baseline; gap: 10px; min-width: 0; padding: 0 12px; cursor: pointer; }
+.kd-nav-title { min-width: 0; max-width: 300px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.kd-nav-title b { font: 600 12px/1 'P JetBrains Mono', ui-monospace, monospace; margin-right: 4px; color: #f0a594; }
+.kd-nav-count { flex: none; font-size: 11px; opacity: .6; }
+.kd-nav-count::after { content: ' ▾'; }
+.kd-nav select { position: absolute; inset: 0; width: 100%; opacity: 0; cursor: pointer; font-size: 16px; }
+.kd-nav :focus-visible { outline: 2px solid #f0a594; outline-offset: 2px; }
+.kd-nav-label:has(select:focus-visible) { outline: 2px solid #f0a594; outline-offset: 2px; border-radius: 999px; }
+@media (max-width: 480px) { .kd-nav-count { display: none; } .kd-nav-title { max-width: 170px; } }
+@keyframes kd-nav-in { from { opacity: 0; transform: translate(-50%, 16px); } }
+@media (prefers-reduced-motion: reduce) { .kd-nav { animation: none; } }
