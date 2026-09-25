@@ -63,7 +63,7 @@ npm run preview    # serve dist/
 
 ## What Kiln is
 
-Kiln is a Windows app for people who use coding agents. It puts every skill Claude Code, Codex and Copilot can load on one panel, with a switch per folder. It also turns things you find (a video, a post, a repo) into prompts, and tests a prompt on your own repo before you keep it as a skill.
+Kiln is a desktop app for Windows, macOS and Linux for people who use coding agents. It puts every skill Claude Code, Codex and Copilot can load on one panel, with a switch per folder. It also turns things you find (a video, a post, a repo) into prompts, and tests a prompt on your own repo before you keep it as a skill.
 
 Kiln is free and open source: [download it](https://wallxack.github.io/kiln/), [read the code](https://github.com/waLLxAck/kiln), or [support its development](https://wallxack.github.io/kiln/support/).
 

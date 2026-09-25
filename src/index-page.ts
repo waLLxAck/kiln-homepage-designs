@@ -74,7 +74,7 @@ export function render(root: HTMLElement) {
         <div class="ix-how-cols">
           <div>
             <h3>What Kiln is</h3>
-            <p>Kiln is a Windows app for people who work with coding agents. It puts every skill Claude Code, Codex and Copilot can load on one panel, with a switch per folder, and it tests a new prompt on your own repo before you keep it as a skill. It’s free and open source: <a href="${kiln.site}">download it</a>, read <a href="${kiln.source}">the code</a>, or <a href="${kiln.support}">support its development</a>.</p>
+            <p>Kiln is a desktop app for Windows, macOS and Linux for people who work with coding agents. It puts every skill Claude Code, Codex and Copilot can load on one panel, with a switch per folder, and it tests a new prompt on your own repo before you keep it as a skill. It’s free and open source: <a href="${kiln.site}">download it</a>, read <a href="${kiln.source}">the code</a>, or <a href="${kiln.support}">support its development</a>.</p>
           </div>
           <div>
             <h3>One brief, many agents</h3>
