@@ -1,6 +1,6 @@
 # 74 homepages for one app
 
-Seventy-four working homepage designs for [Kiln](#what-kiln-is), written by **Claude Opus 5.5** in Claude Code over five rounds of feedback. The last one became Kiln’s homepage.
+Seventy-four working homepage designs for [Kiln](https://github.com/waLLxAck/kiln), written by **Claude Opus 5.5** in Claude Code over five rounds of feedback. The last one became Kiln’s homepage.
 
 Every design is a complete page with real text and working interactions: drag a video into the app, flip a skill’s switch per folder, run a test, approve the result. They’re plain TypeScript and CSS, with no framework and no image files. The art is SVG and CSS, and the fonts are self-hosted.
 
@@ -65,7 +65,9 @@ npm run preview    # serve dist/
 
 Kiln is a Windows app for people who use coding agents. It puts every skill Claude Code, Codex and Copilot can load on one panel, with a switch per folder. It also turns things you find (a video, a post, a repo) into prompts, and tests a prompt on your own repo before you keep it as a skill.
 
-Product details in the designs follow Kiln 0.17.0. Numbers inside them are labelled samples. People, handles and channels are made up, apart from the `mattpocock/skills` repository used as an example source.
+Kiln is free and open source: [download it](https://wallxack.github.io/kiln/), [read the code](https://github.com/waLLxAck/kiln), or [support its development](https://wallxack.github.io/kiln/support/).
+
+Product details in the designs follow Kiln 0.17.0. The designs were made while Kiln’s repository was still private, so some mention a private download; that’s no longer true. Numbers inside them are labelled samples. People, handles and channels are made up, apart from the `mattpocock/skills` repository used as an example source.
 
 ## License
 

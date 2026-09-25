@@ -4,6 +4,7 @@ import { designs, rounds, type Design } from './designs';
 
 const base = import.meta.env.BASE_URL;
 const repo = 'https://github.com/waLLxAck/kiln-homepage-designs';
+const kiln = { site: 'https://wallxack.github.io/kiln/', source: 'https://github.com/waLLxAck/kiln', support: 'https://wallxack.github.io/kiln/support/' };
 const thumb = (design: Design) => `${base}thumbs/${design.number}.jpg`;
 const range = (from: number, to: number) => (from === to ? String(from).padStart(2, '0') : `${String(from).padStart(2, '0')}–${to}`);
 
@@ -27,7 +28,7 @@ export function render(root: HTMLElement) {
   root.innerHTML = `<div class="ix">
     <header class="ix-top">
       <a class="ix-brand" href="${base}"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path d="M1 1h6v6H1zm8 0h6v6H9zM1 9h6v6H1zm8 0h6v6H9z"/></svg>Kiln designs</a>
-      <nav aria-label="Main"><a href="#rounds">All rounds</a><a href="#how">How they were made</a><a href="${repo}">Source on GitHub</a></nav>
+      <nav aria-label="Main"><a href="#rounds">All rounds</a><a href="#how">How they were made</a><a href="${kiln.site}">Get Kiln</a><a href="${repo}">Source on GitHub</a></nav>
     </header>
 
     <main id="main">
@@ -73,7 +74,7 @@ export function render(root: HTMLElement) {
         <div class="ix-how-cols">
           <div>
             <h3>What Kiln is</h3>
-            <p>Kiln is a Windows app for people who work with coding agents. It puts every skill Claude Code, Codex and Copilot can load on one panel, with a switch per folder, and it tests a new prompt on your own repo before you keep it as a skill.</p>
+            <p>Kiln is a Windows app for people who work with coding agents. It puts every skill Claude Code, Codex and Copilot can load on one panel, with a switch per folder, and it tests a new prompt on your own repo before you keep it as a skill. It’s free and open source: <a href="${kiln.site}">download it</a>, read <a href="${kiln.source}">the code</a>, or <a href="${kiln.support}">support its development</a>.</p>
           </div>
           <div>
             <h3>One brief, many agents</h3>
@@ -92,7 +93,7 @@ export function render(root: HTMLElement) {
     </main>
 
     <footer class="ix-foot">
-      <p>Code MIT licensed. Fonts under their own open licenses. <a href="${repo}">Source on GitHub</a>.</p>
+      <p>Code MIT licensed. Fonts under their own open licenses. <a href="${repo}">Source on GitHub</a>. <a href="${kiln.site}">Kiln</a> is open source too.</p>
       <p>On a design page, use ← and → to step through, or press H to hide the bar.</p>
     </footer>
   </div>`;
