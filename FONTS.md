@@ -1,10 +1,11 @@
 # Fonts
 
-The designs use these Google Fonts, self-hosted as Latin-subset WOFF2 files in `src/fonts/`. They keep their own licenses: the SIL Open Font License 1.1 (https://openfontlicense.org) or, where noted, the Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0). The MIT license in this repository does not cover them.
+The designs use these Google Fonts, self-hosted as Latin-subset WOFF2 files in `src/fonts/`. Five more (Anton, Bricolage Grotesque, Instrument Serif, Manrope and Space Mono, used by designs 01–03) are TrueType files in `src/fonts/extra/`, each with its OFL notice. They all keep their own licenses: the SIL Open Font License 1.1 (https://openfontlicense.org) or, where noted, the Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0). The MIT license in this repository does not cover them.
 
 | Family | License | Copyright |
 | --- | --- | --- |
 | Abril Fatface | SIL OFL 1.1 | Copyright (c) 2011, Copyright (c) 2011, TypeTogether (www.type-together.com), with Reserved Font Names "Abril" and "Abril Fatface" |
+| Anton | SIL OFL 1.1 | Copyright 2020 The Anton Project Authors (https://github.com/googlefonts/AntonFont.git) |
 | Archivo | SIL OFL 1.1 | Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo) |
 | Barlow Condensed | SIL OFL 1.1 | Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow) |
 | Baskervville | SIL OFL 1.1 | Copyright 2018 The Baskervville Project Authors (https://github.com/anrt-type/ANRT-Baskervville) |
@@ -12,8 +13,9 @@ The designs use these Google Fonts, self-hosted as Latin-subset WOFF2 files in `
 | Big Shoulders Display | SIL OFL 1.1 | Copyright 2019 The Big Shoulders Project Authors (https://github.com/xotypeco/big_shoulders) |
 | Bodoni Moda | SIL OFL 1.1 | Copyright 2020 The Bodoni Moda Project Authors (https://github.com/indestructible-type/Bodoni) |
 | Bowlby One | SIL OFL 1.1 | Copyright (c) 2011 by vernon adams (vern@newtypography.co.uk), with Reserved Font Names "Bowlby" "Bowlby One" and "Bowlby One SC". This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL |
-| Bungee | SIL OFL 1.1 | Copyright 2023 The Bungee Project Authors (https://github.com/djrrb/Bungee) |
+| Bricolage Grotesque | SIL OFL 1.1 | Copyright 2022 The Bricolage Grotesque Project Authors (https://github.com/ateliertriay/bricolage) |
 | Bungee Shade | SIL OFL 1.1 | Copyright 2023 The Bungee Project Authors (https://github.com/djrrb/Bungee) |
+| Bungee | SIL OFL 1.1 | Copyright 2023 The Bungee Project Authors (https://github.com/djrrb/Bungee) |
 | Caveat | SIL OFL 1.1 | Copyright 2014 The Caveat Project Authors (https://github.com/googlefonts/caveat) |
 | Chakra Petch | SIL OFL 1.1 | Copyright 2018 The Chakra Petch Project Authors (https://github.com/m4rc1e/Chakra-Petch.git) |
 | Cinzel | SIL OFL 1.1 | Copyright 2020 The Cinzel Project Authors (https://github.com/NDISCOVER/Cinzel) |
@@ -21,9 +23,9 @@ The designs use these Google Fonts, self-hosted as Latin-subset WOFF2 files in `
 | Cormorant Garamond | SIL OFL 1.1 | Copyright 2015 The Cormorant Project Authors (github.com/CatharsisFonts/Cormorant) |
 | Courier Prime | SIL OFL 1.1 | Copyright 2015 The Courier Prime Project Authors (https://github.com/quoteunquoteapps/CourierPrime). |
 | Crimson Pro | SIL OFL 1.1 | Copyright 2018 The Crimson Pro Project Authors (https://github.com/Fonthausen/CrimsonPro) |
+| Darker Grotesque | SIL OFL 1.1 | Copyright 2019 The Darker Grotesque Project Authors (https://github.com/bettergui/DarkerGrotesque) |
 | DM Mono | SIL OFL 1.1 | Copyright 2020 The DM Mono Project Authors (https://www.github.com/googlefonts/dm-mono) |
 | DM Serif Display | SIL OFL 1.1 | Copyright 2014 - 2017 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'. Copyright 2019 Google LLC. |
-| Darker Grotesque | SIL OFL 1.1 | Copyright 2019 The Darker Grotesque Project Authors (https://github.com/bettergui/DarkerGrotesque) |
 | EB Garamond | SIL OFL 1.1 | Copyright 2017 The EB Garamond Project Authors (https://github.com/octaviopardo/EBGaramond12) |
 | Epilogue | SIL OFL 1.1 | Copyright 2020 The Epilogue Project Authors (https://github.com/Etcetera-Type-Co/Epilogue) |
 | Familjen Grotesk | SIL OFL 1.1 | Copyright 2021 The Familjen Grotesk Project Authors (https://github.com/Familjen-Sthlm/Familjen-Grotesk) |
@@ -40,11 +42,13 @@ The designs use these Google Fonts, self-hosted as Latin-subset WOFF2 files in `
 | IBM Plex Sans | SIL OFL 1.1 | Copyright 2019 IBM Corp. All rights reserved. |
 | IBM Plex Serif | SIL OFL 1.1 | Copyright 2020 IBM Corp. All rights reserved. |
 | Instrument Sans | SIL OFL 1.1 | Copyright 2022 The Instrument Sans Project Authors (https://github.com/Instrument/instrument-sans) |
+| Instrument Serif | SIL OFL 1.1 | Copyright 2022 The Instrument Serif Project Authors (https://github.com/Instrument/instrument-serif) |
 | JetBrains Mono | SIL OFL 1.1 | Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono) |
 | Kalam | SIL OFL 1.1 | Copyright (c) 2014 Indian Type Foundry (info@indiantypefoundry.com) |
 | Lexend | SIL OFL 1.1 | Copyright 2019 The Lexend Project Authors (https://github.com/googlefonts/lexend) |
 | Libre Barcode 128 Text | SIL OFL 1.1 | Copyright 2017-2020 The Libre Barcode Project Authors (https://github.com/graphicore/librebarcode) |
 | Major Mono Display | SIL OFL 1.1 | Copyright 2018 The Major Mono Project Authors (https://github.com/googlefonts/majormono) |
+| Manrope | SIL OFL 1.1 | Copyright 2018 The Manrope Project Authors (https://github.com/googlefonts/manrope) |
 | Martian Mono | SIL OFL 1.1 | Copyright 2020 The Martian Mono Project Authors (https://github.com/evilmartians/mono) |
 | Monoton | SIL OFL 1.1 | Copyright (c) 2011 by vernon adams. All rights reserved. |
 | Nanum Pen Script | SIL OFL 1.1 | Copyright © 2010 NHN Corporation. All rights reserved. Font designed by Sandoll Communications Inc. |
@@ -59,8 +63,8 @@ The designs use these Google Fonts, self-hosted as Latin-subset WOFF2 files in `
 | Press Start 2P | SIL OFL 1.1 | Copyright 2012 The Press Start 2P Project Authors (cody@zone38.net), with Reserved Font Name "Press Start 2P" |
 | Red Hat Display | SIL OFL 1.1 | Copyright 2024 The Red Hat Project Authors (https://github.com/RedHatOfficial/RedHatFont) |
 | Righteous | SIL OFL 1.1 | Copyright (c) 2011 by Brian J. Bonislawsky DBA Astigmatic (AOETI) (astigma@astigmatic.com), with Reserved Font Name "Righteous" |
-| Rubik | SIL OFL 1.1 | Copyright 2015 The Rubik Project Authors (https://github.com/googlefonts/rubik) |
 | Rubik Mono One | SIL OFL 1.1 | Copyright (c) 2013, 2014, Hubert and Fischer, Philipp Hubert (philipp@hubertfischer.com), Sebastian Fischer (sebastian@hubertfischer.com) |
+| Rubik | SIL OFL 1.1 | Copyright 2015 The Rubik Project Authors (https://github.com/googlefonts/rubik) |
 | Schibsted Grotesk | SIL OFL 1.1 | Copyright 2023 The Schibsted-Grotesk Project Authors (https://github.com/schibsted/schibsted-grotesk) |
 | Shrikhand | SIL OFL 1.1 | Copyright (c) 2015 Jonny Pinhorn (jonpinhorn.typedesign@gmail.com) |
 | Silkscreen | SIL OFL 1.1 | Copyright 2001 The Silkscreen Project Authors (https://github.com/googlefonts/silkscreen) |

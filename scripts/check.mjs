@@ -13,7 +13,11 @@ for (const width of [1440, 390]) {
   for (const route of ['', ...numbers]) {
     const problems = [];
     const onError = error => problems.push(`error: ${error.message}`);
-    const onResponse = response => { if (response.status() >= 400) problems.push(`${response.status()} ${response.url()}`); };
+    const onResponse = response => {
+      if (response.status() >= 400) problems.push(`${response.status()} ${response.url()}`);
+      // A dev or preview server answers missing assets with index.html, so an HTML body for a font or script is a missing file too.
+      else if (response.request().resourceType() !== 'document' && (response.headers()['content-type'] ?? '').includes('text/html')) problems.push(`missing (got HTML): ${response.url()}`);
+    };
     const onRequest = request => { if (!request.url().startsWith(new URL(site).origin) && !/^(data|blob):/.test(request.url())) problems.push(`off-site: ${request.url()}`); };
     page.on('pageerror', onError); page.on('response', onResponse); page.on('request', onRequest);
     await page.goto(new URL(route ? `${route}/` : '', site).href, { waitUntil: 'networkidle' });
